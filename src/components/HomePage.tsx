@@ -19,16 +19,21 @@ function BookResults({ searchQuery }: { searchQuery: SearchQuery }) {
     () => bookApi.endpoints.searchBook.select(searchQuery),
     [searchQuery]
   );
-  const { data } = useAppSelector(selector);
+  const { data, isLoading, isError } = useAppSelector(selector);
 
-  if (!data) return null;
-  return (
-    <ul>
-      {data.map((book) => {
-        return <li key={book.isbn13}>{book.title}</li>;
-      })}
-    </ul>
-  );
+  if (isError) return <p role="alert">Failed to get results</p>;
+  if (isLoading) return <p role="progressbar">Loading...</p>;
+  if (data)
+    return data.length ? (
+      <ul>
+        {data.map((book) => {
+          return <li key={book.isbn13}>{book.title}</li>;
+        })}
+      </ul>
+    ) : (
+      <p>No result found</p>
+    );
+  return null;
 }
 
 function SearchInput({
