@@ -4,7 +4,7 @@ export const makeEmptyApi = () =>
   createApi({
     reducerPath: "api",
     baseQuery: fakeBaseQuery(),
-    tagTypes: ["Article"],
+    tagTypes: ["Article", "Book"],
     endpoints: () => ({}),
   });
 export type EmptyApi = ReturnType<typeof makeEmptyApi>;
