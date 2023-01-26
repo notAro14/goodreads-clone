@@ -1,0 +1,61 @@
+{
+  "name": "next-ts-starter",
+  "description": "Next Typescript Starter Code",
+  "private": true,
+  "license": "MIT",
+  "author": "Aro Andriamaro <ni.aro.aina@gmail.com>",
+  "keywords": [
+    "next js template",
+    "react template",
+    "react typescript"
+  ],
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint --fix --cache .",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write --ignore-unknown .",
+    "prepare": "husky install",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss,sass,md,mdx,html,json}": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{jsx,js,ts,tsx}": [
+      "eslint --fix --cache"
+    ]
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
+    "@stitches/react": "^1.2.8",
+    "axios": "^1.2.2",
+    "next": "^13.1.2",
+    "next-themes": "^0.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-redux": "^8.0.5"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "eslint": "^8.31.0",
+    "eslint-config-next": "^13.1.2",
+    "eslint-config-prettier": "^8.6.0",
+    "husky": "^8.0.3",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
