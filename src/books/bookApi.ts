@@ -6,7 +6,7 @@ export const makeBookApi = (emptyApi: EmptyApi) => {
   return emptyApi.injectEndpoints({
     endpoints: (build) => ({
       searchBook: build.query<Book[], SearchQuery>({
-        providesTags: ["Book"],
+        providesTags: (_res, _err, arg) => [{ type: "Book", id: arg }],
         async queryFn(searchQuery, api) {
           const { dependencies } = api.extra as { dependencies: Dependencies };
           const results = await dependencies.bookGateway?.search(searchQuery);

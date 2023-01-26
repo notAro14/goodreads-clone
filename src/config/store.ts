@@ -1,10 +1,12 @@
-import { ProdArticleGateway } from "src/articles/gateways/prodArticleGateway";
+import { InMemoryBookGateway } from "src/books/gateways/inMemoryBookGateway";
 import { configureAppStore } from "src/store";
-import { emptyApi } from "./emptyApi";
+import { emptyApi } from "./api";
 
-const articleGateway = new ProdArticleGateway();
+const inMemory = new InMemoryBookGateway();
+inMemory.init = [{ title: "FP in Scala", isbn13: "123abc" }];
+
 export const store = configureAppStore({
   emptyApi,
-  articleGateway,
+  bookGateway: inMemory,
 });
 export const { dispatch } = store;
