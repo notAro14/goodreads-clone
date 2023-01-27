@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { Root } from "./RootLayout.css";
 
 interface Props {
   children: ReactNode;
@@ -7,5 +6,5 @@ interface Props {
 
 export default function RootLayout(props: Props) {
   const { children } = props;
-  return <Root>{children}</Root>;
+  return <div>{children}</div>;
 }
