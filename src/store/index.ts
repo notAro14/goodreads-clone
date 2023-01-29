@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import type { BookApi } from "src/books/bookApi";
+import type { BookApi } from "src/books/usecases/bookApi";
 import type { BookGateway } from "src/books/gateways/BookGateway";
 import type { EmptyApi } from "./emptyApi";
 

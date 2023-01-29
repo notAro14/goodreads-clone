@@ -1,9 +1,8 @@
 import { AppDispatch, AppStore, configureAppStore } from "src/store";
 import { EmptyApi, makeEmptyApi } from "src/store/emptyApi";
-import { makeBookApi, BookApi } from "../bookApi";
+import { makeBookApi, BookApi } from "./bookApi";
 import type { Book } from "../entities/Book";
 import { InMemoryBookGateway } from "../gateways/inMemoryBookGateway";
-import { searchBook } from "./searchBook";
 
 describe("search a book with the keyword TDD", () => {
   const searchQuery = "TDD";
@@ -37,7 +36,7 @@ describe("search a book with the keyword TDD", () => {
   });
 
   test("many results found", async () => {
-    await searchBook({ dispatch, bookApi })(searchQuery);
+    await dispatch(bookApi.endpoints.searchBook.initiate(searchQuery));
     const searchBookSelector = bookApi.endpoints.searchBook.select(searchQuery);
     expect(searchBookSelector(store.getState()).data).toEqual<Book[]>(
       FAKE_RESULTS

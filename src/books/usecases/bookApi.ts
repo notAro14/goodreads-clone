@@ -1,6 +1,6 @@
 import { Dependencies } from "src/store";
 import { EmptyApi } from "src/store/emptyApi";
-import type { Book, SearchQuery } from "./entities/Book";
+import type { Book, SearchQuery } from "../entities/Book";
 
 export const makeBookApi = (emptyApi: EmptyApi) => {
   return emptyApi.injectEndpoints({
