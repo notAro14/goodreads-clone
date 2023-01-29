@@ -1,4 +1,5 @@
 import { FormEventHandler, useRef } from "react";
+import { Input, FormLabel, FormControl, Button } from "@chakra-ui/react";
 import type { SearchQuery } from "src/books/entities/Book";
 import { bookApi } from "src/config/api";
 
@@ -26,11 +27,13 @@ export default function SearchForm(props: {
 
   return (
     <form onSubmit={onSubmit}>
-      <label htmlFor="query">Keywords</label>
-      <input defaultValue={searchQuery} id="query" ref={ref} />
-      <button type="submit" disabled={isSubmitDisabled}>
+      <FormControl>
+        <FormLabel htmlFor="query">Search a book</FormLabel>
+        <Input defaultValue={searchQuery} id="query" ref={ref} />
+      </FormControl>
+      <Button colorScheme="blue" type="submit" disabled={isSubmitDisabled}>
         Search
-      </button>
+      </Button>
     </form>
   );
 }

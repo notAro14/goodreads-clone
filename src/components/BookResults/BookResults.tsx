@@ -1,3 +1,4 @@
+import { UnorderedList, ListItem } from "@chakra-ui/react";
 import { useAppSelector } from "src/store/hooks";
 import type { SearchQuery } from "src/books/entities/Book";
 import { bookApi } from "src/config/api";
@@ -16,10 +17,10 @@ export default function BookResults(props: Props) {
   const { data: books } = useSearchBookSelector(searchQuery);
   if (!books) return null;
   return (
-    <ul>
+    <UnorderedList>
       {books.map((book) => {
-        return <li key={book.isbn13}>{book.title}</li>;
+        return <ListItem key={book.isbn13}>{book.title}</ListItem>;
       })}
-    </ul>
+    </UnorderedList>
   );
 }
