@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build && next export -o _static",
     "start": "next start",
     "lint": "eslint --fix --cache .",
     "typecheck": "tsc --noEmit",
